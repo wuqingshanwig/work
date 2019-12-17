@@ -13,31 +13,18 @@ public class CountCode {
         BufferedReader br = new BufferedReader(fr);
         String str = null;
         int count = 0;
-        int count1 = 0;
-        int count2 = 0;
         while((str = br.readLine()) != null){
-            if (str.startsWith("/**")){
-                count1++;
-            }else if(str.startsWith("//")) {
+            if (str.trim().equals("") || str.trim().startsWith("/*") || str.trim().startsWith("//") || str.trim().startsWith("*")) {
+                continue;//除去空行以及注释代码
+            }else{
 
-                 count2++;
-
-
-
-
-
-
-
-
+            count++;
             }
-            else {
-                count++;
 
-            }
 
 
         }
-        System.out.println("文档注释有" + count1 + "行" + "普通注释有" + count2 + "行" + "代码有" + count + "行");
+        System.out.println("这个Java文件有"+ count + "行");
 
     }
 }
